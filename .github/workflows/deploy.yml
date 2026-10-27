@@ -26,8 +26,7 @@ jobs:
 
       - name: Rebuild website
         run: |
-          cat azarashi-upload-part01.bin azarashi-upload-part02.bin azarashi-upload-part03.bin > app.zip
-          unzip -t app.zip
+          curl -fL --retry 3 -o app.zip https://github.com/zundamochi0501/azarashi-denko-1/releases/download/v1.1/denko1_fix_20261027.zip
           mkdir -p dist
           unzip -q app.zip -d dist
           if [ ! -f dist/index.html ]; then
